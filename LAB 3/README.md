@@ -8,7 +8,7 @@
 - **Môn học:** Bảo mật và an toàn hệ thống thông tin
 - **Bài thực hành:** LAB 3
 
-
+- **Link Youtube:** https://www.youtube.com/watch?v=ziBTMhcFsu4 
 ---
 
 ## 2. Mục tiêu bài Lab
@@ -36,16 +36,10 @@ Các nội dung chính:
 | Thành phần | Phiên bản / Cấu hình |
 |---|---|
 | VMware Workstation | Pro  |
-| Hệ điều hành | Windows 11 25H2 x64 |
-| Build | 26200.9445 |
+| Hệ điều hành | Windows Server 2025 |
+
 | Network Adapter | Host-only |
-| PowerShell | 5.1 |
-| Sysmon | 15.22 |
-| Autoruns | 14.3 |
-| Process Explorer | 17.14 |
-| Wireshark | 4.6.8 |
-| Npcap | Được cài cùng Wireshark |
-| Python | 3.14.7 |
+
 
 
 
