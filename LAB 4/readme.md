@@ -1,68 +1,82 @@
-**LAB 4 -- KHẢO SÁT VÀ ĐÁNH GIÁ BỀ MẶT MẠNG BẰNG NMAP**
-**Họ tên: Huỳnh Bảo Trân
-MSSV: 1150070045
-Lớp: 11_ĐH_TMDT**
+# LAB4 - Thực hành Nmap và rà soát dịch vụ mạng
 
-**1. Mục tiêu**
-- Hiểu mô hình host/guest.
-- Cài đặt và kiểm tra Nmap trên Windows và Kali Linux.
-- Thiết lập môi trường mạng Host-Only an toàn.
-- Xác định địa chỉ IP của các máy trong mô hình.
-- Thực hiện host discovery, quét TCP/UDP, nhận diện dịch vụ và hệ điều
-  hành.
-- Sử dụng NSE để kiểm tra thông tin và dấu hiệu lỗ hổng SMB trong môi
-  trường lab.
-- Xuất kết quả quét và lưu bằng chứng.
-- Thực hiện so sánh trước và sau khi hardening.
-**2. Môi trường thực hành**
+**- Họ và tên: Huỳnh Bảo Trân
+- MSSV: 1150070045
+- Lớp: 11_ĐH_TMĐT**
+
+## Môi trường thực hành
+
 - VMware Workstation
-- Kali Linux VM -- máy quét
-- Metasploitable 2 VM -- máy đích
-- Windows 11 VM -- máy đích đối chiếu
-- Nmap / Npcap
-- Mạng VMware Host-Only (VMnet1)
-**3. Nội dung thực hành**
-3.1. Kiểm tra Nmap
-Kiểm tra Nmap trên Windows và Kali Linux, ghi nhận phiên bản và chụp màn
-hình minh chứng.
-3.2. Thiết lập mạng Host-Only
-Cấu hình Kali Linux, Metasploitable 2 và Windows 11 VM trong cùng mạng
-Host-Only. Ghi lại IP và subnet thực tế của từng máy.
-3.3. Kiểm tra kết nối
-Kiểm tra khả năng kết nối giữa Kali và các máy đích trước khi thực hiện
-quét.
-3.4. Phát hiện host đang hoạt động
-Thực hiện host discovery trên dải mạng Host-Only và ghi nhận các host
-được phát hiện.
-3.5. Khảo sát cổng TCP
-Thực hiện và so sánh: - TCP Connect scan (-sT) - SYN scan (-sS) - FIN
-scan - Xmas scan - NULL scan - ACK scan
-Ghi nhận và giải thích các trạng thái open, closed, filtered,
-open|filtered và unfiltered phù hợp với từng kỹ thuật.
-3.6. Quét UDP
-Quét có kiểm soát các cổng UDP phổ biến và ghi nhận trạng thái, dịch vụ
-và quan sát.
-3.7. Nhận diện dịch vụ và hệ điều hành
-Thực hiện: - Version detection (-sV) - OS detection (-O) - Aggressive
-scan (-A)
-Ghi nhận phiên bản dịch vụ, hệ điều hành được suy đoán và các thông tin
-liên quan.
-3.8. NSE -- SMB
-- Thu thập thông tin SMB.
-- Kiểm tra MS17-010 trong môi trường lab.
-- Chỉ kết luận có dấu hiệu dễ bị ảnh hưởng khi kết quả script báo
-  VULNERABLE.
-3.9. Xuất kết quả
-Lưu kết quả quét dưới các dạng: - Normal text - XML - Grepable - HTML
-(nếu thực hiện chuyển đổi)
-3.10. Before/After Hardening
-Thực hiện một thay đổi phòng thủ trên máy Windows VM, quét trước và sau
-thay đổi, sau đó so sánh số cổng, trạng thái cổng và dịch vụ.
+- Kali Linux
+- Nmap 7.99
+- Metasploitable 2
+- Mạng lab: 192.168.43.0/24
+- Kali: 192.168.43.131
+- Metasploitable 2: 192.168.43.132
 
-**4. Kết luận**
-Tóm tắt các host, cổng và dịch vụ phát hiện được; những khác biệt giữa
-các kỹ thuật quét; kết quả kiểm tra NSE; và tác động của biện pháp
-hardening.
-Lưu ý: Bài thực hành chỉ được thực hiện trên các máy ảo do sinh
-viên quản lý trong mạng Host-Only. Không quét hệ thống bên ngoài khi
-chưa được phép.
+## Cách dựng môi trường
+
+Các máy ảo được cấu hình trong VMware Workstation và đặt trong
+mạng lab riêng. Kali Linux được sử dụng làm máy quét và
+Metasploitable 2 được sử dụng làm máy đích.
+
+Kiểm tra kết nối giữa các máy trước khi thực hiện quét Nmap.
+
+## Các tình huống đã thực hiện
+
+- Host discovery trong mạng lab
+- TCP Connect Scan (-sT)
+- SYN Scan (-sS)
+- FIN Scan (-sF)
+- Xmas Scan (-sX)
+- NULL Scan (-sN)
+- ACK Scan (-sA)
+- UDP Scan (-sU)
+- Service/Version Detection (-sV)
+- OS Detection (-O)
+- Aggressive Scan (-A)
+- NSE script với SMB
+- Quét cổng 445 trên subnet
+- Xuất kết quả Nmap ra XML
+- Chuyển kết quả XML sang HTML
+
+## Kết quả
+
+PASS - Kali Linux có thể phát hiện và quét máy Metasploitable 2.
+
+PASS - Phát hiện nhiều dịch vụ đang mở trên Metasploitable 2.
+
+PASS - Nmap nhận diện được phiên bản của nhiều dịch vụ.
+
+PASS - Nmap thực hiện được OS detection trên máy đích.
+
+PASS - Aggressive Scan thu thập được thông tin dịch vụ, hệ điều hành,
+NSE script và traceroute.
+
+PASS - Cổng TCP/445 trên Metasploitable 2 được phát hiện ở trạng thái open.
+
+PASS - NSE smb-os-discovery thu thập được thông tin SMB của máy đích.
+
+FAIL/Không xác định - Script smb-vuln-ms17-010 không trả về kết quả
+VULNERABLE, vì vậy không kết luận máy đích bị ảnh hưởng chỉ dựa trên
+lần kiểm tra này.
+
+## Lỗi gặp phải và cách khắc phục
+
+### Một số scan trả về open|filtered
+
+FIN/Xmas/NULL scan có thể không nhận được phản hồi rõ ràng từ máy đích.
+
+Cách xử lý: đối chiếu với SYN Scan, TCP Connect Scan và Service
+Detection để đánh giá kết quả.
+
+### NSE không trả về kết quả mong đợi
+
+Không tự suy diễn rằng máy an toàn hoặc có lỗ hổng khi script không
+đưa ra kết luận rõ ràng. Chỉ kết luận khi có bằng chứng từ output.
+
+## Lưu ý an toàn
+
+Toàn bộ quá trình thực hành được thực hiện trong môi trường máy ảo
+phục vụ học tập. Các output/log được kiểm tra và làm sạch trước khi
+đưa lên repository.
