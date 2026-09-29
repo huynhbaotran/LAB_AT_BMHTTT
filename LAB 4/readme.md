@@ -3,6 +3,7 @@
 **- Họ và tên: Huỳnh Bảo Trân
 - MSSV: 1150070045
 - Lớp: 11_ĐH_TMĐT**
+- Link video youtube: https://youtu.be/CzIkmYYfXsw **
 
 ## Môi trường thực hành
 
