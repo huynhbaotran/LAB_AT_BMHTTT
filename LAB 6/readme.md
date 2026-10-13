@@ -1,0 +1,10 @@
+**AN TOÀN HỆ THỐNG THÔNG TIN**``
+
+Họ tên: Huỳnh Bảo Trân
+MSSV: 1150070045
+Lớp: 11_ĐH_TMĐT
+
+**LAB 6
+XÁC THỰC ACTIVE DIRECTORY VÀ
+CHÍNH SÁCH TRUY CẬP TRÊN pfSense**``
+
