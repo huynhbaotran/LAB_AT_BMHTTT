@@ -1,7 +1,7 @@
 # LAB 7: XÂY DỰNG CHÍNH SÁCH WEB PROTECTION TRÊN MÔ HÌNH pfSense + WEB PROXY
 
 
----
+
 
 ## 1. THÔNG TIN CÁ NHÂN & MÔI TRƯỜNG THỰC HÀNH
 
@@ -17,11 +17,9 @@
   * **Client-A (Ubuntu CLI):** Máy trạm kiểm thử chính sách trong vùng LAN
   * **DC01 (Windows Server 2025):** Active Directory Domain Controller & Internal DNS Server
 
----
+
 
 ## 2. ĐỊA CHỈ IP
-
-Mô hình phân vùng mạng cô lập qua các card mạng ảo nội bộ (VMnet), ngăn chặn tuyệt đối các luồng truy cập web trực tiếp từ LAN ra ngoài mà không qua proxy.
 
 | Thiết bị / Máy ảo | Giao diện mạng | Địa chỉ IP / Subnet | Default Gateway | Chức năng & Dịch vụ |
 | :--- | :--- | :--- | :--- | :--- |
@@ -32,12 +30,11 @@ Mô hình phân vùng mạng cô lập qua các card mạng ảo nội bộ (VMn
 | **DC01** | `Ethernet0` (LAN - VMnet4) | `10.6.0.10/24` | `10.6.0.1` | Phân giải DNS nội bộ cho zone `lab7.test` |
 | **Máy Quản trị** | Card Host-Only (VMnet3) | `192.168.56.1/24` | — | Truy cập WebGUI pfSense qua `https://192.168.56.254` |
 
----
+
 
 ## 3. THIẾT LẬP FIREWALL RULES TRÊN pfSense (LAN INTERFACE)
 
-```text
-[LAN Interface Ruleset]
+
 │
 ├── 1. [Pass] Anti-Lockout Rule: Quản trị WebGUI pfSense (Port 80, 443)
 ├── 2. [Pass] DNS Access: LAN subnets -> 10.6.0.10 (Port 53 TCP/UDP)
