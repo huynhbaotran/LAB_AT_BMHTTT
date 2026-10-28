@@ -3,7 +3,7 @@
 
 
 
-## 1. THÔNG TIN CÁ NHÂN & MÔI TRƯỜNG THỰC HÀNH
+# 1. THÔNG TIN CÁ NHÂN & MÔI TRƯỜNG THỰC HÀNH
 
 * **Họ tên:** Huỳnh Bảo Trân
 * **Lớp:** 11_ĐH_TMĐT
@@ -19,7 +19,7 @@
 
 
 
-## 2. ĐỊA CHỈ IP
+# 2. ĐỊA CHỈ IP
 
 | Thiết bị / Máy ảo | Giao diện mạng | Địa chỉ IP / Subnet | Default Gateway | Chức năng & Dịch vụ |
 | :--- | :--- | :--- | :--- | :--- |
@@ -32,9 +32,11 @@
 
 
 
-## 3. THIẾT LẬP FIREWALL RULES TRÊN pfSense (LAN INTERFACE)
+# 3. THIẾT LẬP FIREWALL RULES TRÊN pfSense (LAN INTERFACE)
 
 
+```text
+[LAN Interface Ruleset]
 │
 ├── 1. [Pass] Anti-Lockout Rule: Quản trị WebGUI pfSense (Port 80, 443)
 ├── 2. [Pass] DNS Access: LAN subnets -> 10.6.0.10 (Port 53 TCP/UDP)
