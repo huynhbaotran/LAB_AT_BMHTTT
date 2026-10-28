@@ -3,7 +3,7 @@
 
 
 
-# 1. THÔNG TIN CÁ NHÂN & MÔI TRƯỜNG THỰC HÀNH
+## 1. THÔNG TIN CÁ NHÂN & MÔI TRƯỜNG THỰC HÀNH
 
 * **Họ tên:** Huỳnh Bảo Trân
 * **Lớp:** 11_ĐH_TMĐT
@@ -11,7 +11,7 @@
 * **Link Youtube:** https://youtu.be/BbgcJTvJFNE
 * **Môi trường:** VMware Workstation
 * **Hệ điều hành sử dụng:**
-  * **pfSense CE 2.7.2-RELEASE (amd64):** Firewall / Routing / NAT / Gateway
+  * **pfSense 2.7.2-RELEASE (amd64):** Firewall / Routing / NAT / Gateway
   * **WEB-PROXY (Ubuntu Server 24.04 LTS CLI):** E2Guardian (:8080) + Squid (:3128) + ClamAV
   * **DMZ-WEB (Ubuntu Server 24.04 LTS CLI):** Nginx hosting 13 virtual host mô phỏng (`.lab7.test`)
   * **Client-A (Ubuntu CLI):** Máy trạm kiểm thử chính sách trong vùng LAN
@@ -19,7 +19,7 @@
 
 
 
-# 2. ĐỊA CHỈ IP
+## 2. ĐỊA CHỈ IP
 
 | Thiết bị / Máy ảo | Giao diện mạng | Địa chỉ IP / Subnet | Default Gateway | Chức năng & Dịch vụ |
 | :--- | :--- | :--- | :--- | :--- |
@@ -32,7 +32,7 @@
 
 
 
-# 3. THIẾT LẬP FIREWALL RULES TRÊN pfSense (LAN INTERFACE)
+## 3. THIẾT LẬP FIREWALL RULES TRÊN pfSense (LAN INTERFACE)
 
 
 ```text
